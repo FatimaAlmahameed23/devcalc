@@ -33,6 +33,10 @@ migrate_working_dir/
 .pub/
 /build/
 
+# Generated files
+*.g.dart
+*.freezed.dart
+
 # Symbolication related
 app.*.symbols
 
@@ -44,6 +48,3 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Generated files
-*.g.dart
-*.freezed.dart
