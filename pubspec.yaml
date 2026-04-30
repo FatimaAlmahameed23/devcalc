@@ -1,0 +1,23 @@
+name: devcalc
+description: "A developer-focused calculator app for programmers. Offline, fast, and built with Flutter."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.8.1 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_bloc: ^8.1.6
+
+  # Navigation
+  go_router: ^14.6.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
