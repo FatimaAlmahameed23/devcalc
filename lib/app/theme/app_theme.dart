@@ -1,3 +1,4 @@
+import 'package:devcalc/app/theme/app_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
@@ -7,6 +8,7 @@ abstract final class AppTheme {
   static ThemeData get dark => ThemeData(
     brightness: Brightness.dark,
     scaffoldBackgroundColor: AppColors.darkBackground,
+    extensions: const [AppColorScheme.dark],
     primaryColor: AppColors.primary,
     fontFamily:
         'Courier New', // temporary — will replace with JetBrains Mono later
@@ -54,6 +56,7 @@ abstract final class AppTheme {
   static ThemeData get light => ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.lightBackground,
+    extensions: const [AppColorScheme.light],
     primaryColor: AppColors.primary,
     fontFamily: 'Courier New',
     colorScheme: const ColorScheme.light(
