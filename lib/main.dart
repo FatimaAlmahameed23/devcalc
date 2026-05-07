@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app/router/app_router.dart';
 import 'app/theme/app_theme.dart';
+import 'app/theme/theme_notifier.dart';
 
 void main() {
   runApp(const DevCalcApp());
@@ -16,13 +17,16 @@ class DevCalcApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, __) => MaterialApp.router(
-        title: 'DevCalc',
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.light,
-        darkTheme: AppTheme.dark,
-        themeMode: ThemeMode.dark,
-        routerConfig: appRouter,
+      builder: (_, __) => ValueListenableBuilder<ThemeMode>(
+        valueListenable: themeNotifier,
+        builder: (_, mode, __) => MaterialApp.router(
+          title: 'DevCalc',
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.light,
+          darkTheme: AppTheme.dark,
+          themeMode: mode,
+          routerConfig: appRouter,
+        ),
       ),
     );
   }
