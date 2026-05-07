@@ -1,13 +1,53 @@
-import 'package:devcalc/app/theme/app_colors.dart';
+import 'package:devcalc/core/extensions/context_extentions.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyles {
-  static TextStyle get _monoBase => GoogleFonts.jetBrainsMono();
+  static TextStyle get _monoBase =>
+      const TextStyle(fontFamily: 'JetBrainsMono');
 
-  static TextStyle get secondartS48W300 => _monoBase.copyWith(
+  // ---------------------- Secondary Text Styles ------------------ //
+  static TextStyle subtleS13W400(BuildContext context) => _monoBase.copyWith(
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    color: context.colors.textSecondary,
+  );
+
+  static TextStyle mutedS11W400(BuildContext context) => _monoBase.copyWith(
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+    color: context.colors.textSecondary,
+  );
+
+  // ---------------------- Neutral Text Styles ------------------ //
+  static TextStyle neutralS11W400(BuildContext context) => _monoBase.copyWith(
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+    color: context.colors.textNeutral,
+  );
+
+  // ---------------------- Primary Text Styles ------------------ //
+  static TextStyle primaryS48W300(BuildContext context) => _monoBase.copyWith(
     fontSize: 48,
     fontWeight: FontWeight.w300,
-    color: AppColors.darkTextPrimary,
+    color: context.colors.textPrimary,
+  );
+
+  static TextStyle primaryS18W400(BuildContext context) => _monoBase.copyWith(
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    color: context.colors.textPrimary,
+  );
+  static TextStyle primaryS11W400(BuildContext context) => _monoBase.copyWith(
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+    color: context.colors.textPrimary,
+  );
+
+  // ---------------------- Success Text Styles ------------------ //
+
+  static TextStyle successS11W400(BuildContext context) => _monoBase.copyWith(
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+    color: context.colors.textSuccess,
   );
 }

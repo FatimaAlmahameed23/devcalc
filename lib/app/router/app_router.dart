@@ -1,4 +1,5 @@
 import 'package:devcalc/app/utils/placeholder_screen.dart';
+import 'package:devcalc/features/standard_calculator/presentation/screens/standard_calculator_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +20,7 @@ final appRouter = GoRouter(
       routes: [
         GoRoute(
           path: AppRoutes.calculator,
-          builder: (context, state) =>
-              const PlaceholderScreen(title: 'Calculator'),
+          builder: (context, state) => const StandardCalculatorPage(),
         ),
         GoRoute(
           path: AppRoutes.programmer,
