@@ -1,4 +1,4 @@
-import 'package:devcalc/core/extensions/context_extentions.dart';
+import 'package:devcalc/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class AppTextStyles {

@@ -10,7 +10,7 @@ abstract final class AppTheme {
     scaffoldBackgroundColor: AppColors.surface,
     extensions: const [AppColorScheme.dark],
     primaryColor: AppColors.primary,
-    fontFamily: 'Courier New',
+    fontFamily: 'JetBrainsMono',
     colorScheme: const ColorScheme.dark(
       primary: AppColors.primary,
       secondary: AppColors.secondary,
@@ -57,7 +57,7 @@ abstract final class AppTheme {
     scaffoldBackgroundColor: AppColors.lightGray150,
     extensions: const [AppColorScheme.light],
     primaryColor: AppColors.lightPrimary,
-    fontFamily: 'Courier New',
+    fontFamily: 'JetBrainsMono',
     colorScheme: const ColorScheme.light(
       primary: AppColors.lightPrimary,
       secondary: AppColors.lightSecondary,
