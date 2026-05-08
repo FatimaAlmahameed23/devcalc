@@ -10,8 +10,8 @@ class StandardCalculatorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const StandaredCalculatorAppbar()),
-      body: Column(
-        children: [const DisplayArea(), StandardCalculatorButtons()],
+      body: const Column(
+        children: [DisplayArea(), StandardCalculatorButtons()],
       ),
     );
   }

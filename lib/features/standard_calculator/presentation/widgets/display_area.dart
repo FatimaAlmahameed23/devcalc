@@ -14,7 +14,7 @@ class DisplayArea extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: Padding(
-            padding: EdgeInsets.fromLTRB(16.h, 12.h, 16.h, 14.h),
+            padding: EdgeInsets.fromLTRB(12.h, 18.h, 14.h, 18.h),
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [ExpressionLine(), ResultLine(), CopyResultButton()],
@@ -33,19 +33,22 @@ class CopyResultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          backgroundColor: context.colors.surfaceRaised,
-          padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 3.h),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4.r),
-            side: BorderSide(color: context.colors.gray300, width: 0.5.h),
+      child: SizedBox(
+        height: 22.h,
+        child: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: context.colors.surfaceRaised,
+            padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 8.w),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(6.r),
+              side: BorderSide(color: context.colors.gray300, width: 0.5.h),
+            ),
           ),
-        ),
-        child: Text(
-          'copy result',
-          style: AppTextStyles.successS11W400(context),
+          child: Text(
+            'copy result',
+            style: AppTextStyles.successS11W400(context),
+          ),
         ),
       ),
     );
@@ -58,8 +61,8 @@ class ResultLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 54.w,
-      child: Text('16', style: AppTextStyles.primaryS48W300(context)),
+      height: 65.w,
+      child: Text('16', style: AppTextStyles.primaryS56W300(context)),
     );
   }
 }
@@ -96,9 +99,8 @@ class HistoryArea extends StatelessWidget {
                 color: context.colors.surfaceRaised,
                 borderRadius: BorderRadius.circular(4.r),
               ),
-              child: Text('$item', style: AppTextStyles.mutedS11W400(context)),
+              child: Text('$item', style: AppTextStyles.mutedS10W400(context)),
             ),
-
             4.horizontalSpace,
           ],
         ],

@@ -12,8 +12,8 @@ class AppTextStyles {
     color: context.colors.textSecondary,
   );
 
-  static TextStyle mutedS11W400(BuildContext context) => _monoBase.copyWith(
-    fontSize: 11,
+  static TextStyle mutedS10W400(BuildContext context) => _monoBase.copyWith(
+    fontSize: 10,
     fontWeight: FontWeight.w400,
     color: context.colors.textSecondary,
   );
@@ -26,8 +26,8 @@ class AppTextStyles {
   );
 
   // ---------------------- Primary Text Styles ------------------ //
-  static TextStyle primaryS48W300(BuildContext context) => _monoBase.copyWith(
-    fontSize: 48,
+  static TextStyle primaryS56W300(BuildContext context) => _monoBase.copyWith(
+    fontSize: 56,
     fontWeight: FontWeight.w300,
     color: context.colors.textPrimary,
   );
