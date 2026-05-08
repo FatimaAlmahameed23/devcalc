@@ -10,7 +10,7 @@ abstract final class AppTheme {
     scaffoldBackgroundColor: AppColors.surface,
     extensions: const [AppColorScheme.dark],
     primaryColor: AppColors.primary,
-    fontFamily: 'Courier New',
+    fontFamily: 'JetBrainsMono',
     colorScheme: const ColorScheme.dark(
       primary: AppColors.primary,
       secondary: AppColors.secondary,
@@ -18,7 +18,7 @@ abstract final class AppTheme {
       error: AppColors.error,
       onPrimary: AppColors.surface,
       onSecondary: AppColors.surface,
-      onSurface: Color(0xFFE6EDF3),
+      onSurface: AppColors.textPrimary,
       onError: AppColors.surface,
     ),
     cardTheme: CardThemeData(
@@ -31,7 +31,7 @@ abstract final class AppTheme {
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.surface,
-      foregroundColor: Color(0xFFE6EDF3),
+      foregroundColor: AppColors.textPrimary,
       elevation: 0,
       centerTitle: false,
     ),
@@ -40,15 +40,15 @@ abstract final class AppTheme {
       thickness: 1,
     ),
     textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Color(0xFFE6EDF3)),
-      bodyMedium: TextStyle(color: Color(0xFFE6EDF3)),
-      bodySmall: TextStyle(color: Color(0xFF8B949E)),
+      bodyLarge: TextStyle(color: AppColors.textPrimary),
+      bodyMedium: TextStyle(color: AppColors.textPrimary),
+      bodySmall: TextStyle(color: AppColors.textSecondary),
       titleLarge: TextStyle(
-        color: Color(0xFFE6EDF3),
+        color: AppColors.textPrimary,
         fontWeight: FontWeight.bold,
       ),
-      titleMedium: TextStyle(color: Color(0xFFE6EDF3)),
-      titleSmall: TextStyle(color: Color(0xFF8B949E)),
+      titleMedium: TextStyle(color: AppColors.textPrimary),
+      titleSmall: TextStyle(color: AppColors.textSecondary),
     ),
   );
 
@@ -57,7 +57,7 @@ abstract final class AppTheme {
     scaffoldBackgroundColor: AppColors.lightGray150,
     extensions: const [AppColorScheme.light],
     primaryColor: AppColors.lightPrimary,
-    fontFamily: 'Courier New',
+    fontFamily: 'JetBrainsMono',
     colorScheme: const ColorScheme.light(
       primary: AppColors.lightPrimary,
       secondary: AppColors.lightSecondary,
@@ -65,7 +65,7 @@ abstract final class AppTheme {
       error: AppColors.lightError,
       onPrimary: AppColors.lightSurface,
       onSecondary: AppColors.lightSurface,
-      onSurface: Color(0xFF1F2328),
+      onSurface: AppColors.lightTextPrimary,
       onError: AppColors.lightSurface,
     ),
     cardTheme: CardThemeData(
@@ -78,7 +78,7 @@ abstract final class AppTheme {
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.lightGray150,
-      foregroundColor: Color(0xFF1F2328),
+      foregroundColor: AppColors.lightTextPrimary,
       elevation: 0,
       centerTitle: false,
     ),
@@ -87,15 +87,15 @@ abstract final class AppTheme {
       thickness: 1,
     ),
     textTheme: const TextTheme(
-      bodyLarge: TextStyle(color: Color(0xFF1F2328)),
-      bodyMedium: TextStyle(color: Color(0xFF1F2328)),
-      bodySmall: TextStyle(color: Color(0xFF656D76)),
+      bodyLarge: TextStyle(color: AppColors.lightTextPrimary),
+      bodyMedium: TextStyle(color: AppColors.lightTextPrimary),
+      bodySmall: TextStyle(color: AppColors.lightTextSecondary),
       titleLarge: TextStyle(
-        color: Color(0xFF1F2328),
+        color: AppColors.lightTextPrimary,
         fontWeight: FontWeight.bold,
       ),
-      titleMedium: TextStyle(color: Color(0xFF1F2328)),
-      titleSmall: TextStyle(color: Color(0xFF656D76)),
+      titleMedium: TextStyle(color: AppColors.lightTextPrimary),
+      titleSmall: TextStyle(color: AppColors.lightTextSecondary),
     ),
   );
 }
