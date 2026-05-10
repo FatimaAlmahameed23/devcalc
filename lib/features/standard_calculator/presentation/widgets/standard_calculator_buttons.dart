@@ -60,7 +60,7 @@ class StandardCalculatorButtons extends StatelessWidget {
               ),
               8.horizontalSpace,
               _CalcButton(
-                label: 'x',
+                label: '×',
                 bgColor: context.colors.opBackground,
                 fgColor: context.colors.secondary,
               ),
