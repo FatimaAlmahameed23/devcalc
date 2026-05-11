@@ -1,3 +1,4 @@
+import 'package:devcalc/core/services/flutter_clipboard_service.dart';
 import 'package:devcalc/features/standard_calculator/domain/services/expression_evaluator.dart';
 import 'package:devcalc/features/standard_calculator/presentation/cubit/calculator_cubit.dart';
 import 'package:devcalc/features/standard_calculator/presentation/widgets/display_area.dart';
@@ -12,7 +13,7 @@ class StandardCalculatorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<CalculatorCubit>(
-      create: (context) => CalculatorCubit(ExpressionEvaluator()),
+      create: (context) => CalculatorCubit(ExpressionEvaluator(), FlutterClipboardService()),
       child: Scaffold(
         appBar: AppBar(title: const StandaredCalculatorAppbar()),
         body: const Column(

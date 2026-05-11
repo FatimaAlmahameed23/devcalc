@@ -40,7 +40,19 @@ class CopyResultButton extends StatelessWidget {
       child: SizedBox(
         height: 22.h,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () async {
+            final cubit = context.read<CalculatorCubit>();
+            final copied = await cubit.copyResult();
+
+            if (!context.mounted || !copied) return;
+            
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Copied to clipboard'),
+                duration: Duration(seconds: 1),
+              ),
+            );
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: context.colors.surfaceRaised,
             padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 8.w),
