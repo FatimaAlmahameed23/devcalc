@@ -1,3 +1,4 @@
+import 'package:devcalc/core/services/clipboard_service.dart';
 import 'package:devcalc/core/utils/number_formatter.dart';
 import 'package:devcalc/features/standard_calculator/domain/models/calculation_result.dart';
 import 'package:devcalc/features/standard_calculator/domain/models/calculator_state.dart';
@@ -7,7 +8,9 @@ import '../../domain/services/expression_evaluator.dart';
 
 class CalculatorCubit extends Cubit<CalculatorState> {
   final ExpressionEvaluator _evaluator;
-  CalculatorCubit(this._evaluator) : super(const CalculatorState());
+  final ClipboardService _clipboard;
+  CalculatorCubit(this._evaluator, this._clipboard)
+    : super(const CalculatorState());
 
   static const _operators = {'+', '−', '×', '÷'};
 
@@ -97,6 +100,16 @@ class CalculatorCubit extends Cubit<CalculatorState> {
           ),
         );
     }
+  }
+
+  Future<bool> copyResult() async {
+    if (state.status != CalculatorStatus.showingResult ||
+        state.result == null) {
+      return false;
+    }
+    final format = formatNumber(state.result!);
+    await _clipboard.copy(format);
+    return true;
   }
 
   void clear() {

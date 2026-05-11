@@ -3,7 +3,8 @@
 A working document. Updated as I learn.
 
 ## Current focus
-Standard calculator — finishing MVP (post-evaluate, formatting, copy)
+Standard calculator MVP complete. Next: History feature (hive_ce persistence).
+
 
 ## MVP checklist
 
@@ -18,7 +19,7 @@ Standard calculator — finishing MVP (post-evaluate, formatting, copy)
 - [x] Wire display to cubit (BlocBuilder)
 - [x] Post-evaluate behavior (digit starts fresh, operator continues from result)
 - [x] Number formatting (drop trailing .0, add thousands separators)
-- [ ] Copy result to clipboard (ClipboardService + cubit method + button + snackbar)
+- [x] Copy result to clipboard (ClipboardService + cubit method + button + snackbar)
 - [ ] `%` button — DEFERRED to polish. Context-sensitive:
       after +/− = percentage of previous operand;
       after ×/÷ or alone = divide by 100.
