@@ -1,72 +1,212 @@
 import 'package:devcalc/app/theme/app_text_styles.dart';
 import 'package:devcalc/core/extensions/context_extensions.dart';
-import 'package:devcalc/features/standard_calculator/domain/entities/calculator_button.dart';
+import 'package:devcalc/features/standard_calculator/presentation/cubit/calculator_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StandardCalculatorButtons extends StatelessWidget {
-  StandardCalculatorButtons({super.key});
-
-  final List<List<String>> buttons = [
-    ['AC', 'backSpace', '%', '÷'],
-    ['7', '8', '9', '×'],
-    ['4', '5', '6', '-'],
-    ['1', '2', '3', '+'],
-    ['00', '0', '.', '='],
-  ];
-
-  // Last column = operator/equal, first row = function, rest = number
-  CalculatorButtonType _typeOf(int row, int col) {
-    if (col == 3) {
-      return row == 4
-          ? CalculatorButtonType.equal
-          : CalculatorButtonType.operator;
-    }
-    if (row == 0) return CalculatorButtonType.function;
-    return CalculatorButtonType.number;
-  }
-
+  const StandardCalculatorButtons({super.key});
   @override
   Widget build(BuildContext context) {
+    final calculatorCubit = context.read<CalculatorCubit>();
     final colors = context.colors;
 
-    final numberBg = colors.surfaceRaised;
-    final functionBg = colors.surfaceRaised;
-    final operatorBg = colors.surfaceRaised;
-    final equalBg = colors.primary;
-
-    final numberFg = colors.textPrimary;
-    final functionFg = colors.textSecondary;
-    final operatorFg = colors.secondary;
-    final equalFg = colors.opBackground;
-
     return Padding(
-      padding: EdgeInsets.all(10.h),
-      child: GridView.count(
-        crossAxisCount: 4,
-        crossAxisSpacing: 8.h,
-        mainAxisSpacing: 8.h,
-        shrinkWrap: true,
+      padding: EdgeInsetsGeometry.fromLTRB(12.h, 0.h, 12.h, 12.h),
+      child: Column(
         children: [
-          for (var r = 0; r < buttons.length; r++)
-            for (var c = 0; c < buttons[r].length; c++)
+          Row(
+            children: [
               _CalcButton(
-                label: buttons[r][c],
-                bgColor: switch (_typeOf(r, c)) {
-                  CalculatorButtonType.number => numberBg,
-                  CalculatorButtonType.function ||
-                  CalculatorButtonType.clear => functionBg,
-                  CalculatorButtonType.operator => operatorBg,
-                  CalculatorButtonType.equal => equalBg,
-                },
-                fgColor: switch (_typeOf(r, c)) {
-                  CalculatorButtonType.number => numberFg,
-                  CalculatorButtonType.function ||
-                  CalculatorButtonType.clear => functionFg,
-                  CalculatorButtonType.operator => operatorFg,
-                  CalculatorButtonType.equal => equalFg,
+                label: 'AC',
+                bgColor: colors.clearBackground,
+                fgColor: colors.error,
+                onPressed: () {
+                  calculatorCubit.clear();
                 },
               ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: Icons.backspace_outlined,
+                bgColor: colors.gray200,
+                fgColor: colors.textSecondary,
+                onPressed: () {
+                  calculatorCubit.backspace();
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '%',
+                bgColor: colors.gray200,
+                fgColor: colors.textSecondary,
+                onPressed: () {
+                  calculatorCubit.appendPercent();
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '÷',
+                bgColor: colors.opBackground,
+                fgColor: colors.secondary,
+                onPressed: () {
+                  calculatorCubit.appendOperator('÷');
+                },
+              ),
+            ],
+          ),
+          8.verticalSpace,
+          Row(
+            children: [
+              _CalcButton(
+                label: '7',
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('7');
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '8',
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('8');
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '9',
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('9');
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '×',
+                bgColor: colors.opBackground,
+                fgColor: colors.secondary,
+                onPressed: () {
+                  calculatorCubit.appendOperator('×');
+                },
+              ),
+            ],
+          ),
+          8.verticalSpace,
+          Row(
+            children: [
+              _CalcButton(
+                label: '4',
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('4');
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '5',
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('5');
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '6',
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('6');
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '−',
+                bgColor: colors.opBackground,
+                fgColor: colors.secondary,
+                onPressed: () {
+                  calculatorCubit.appendOperator('−');
+                },
+              ),
+            ],
+          ),
+          8.verticalSpace,
+          Row(
+            children: [
+              _CalcButton(
+                label: '1',
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('1');
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '2',
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('2');
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '3',
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('3');
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '+',
+                bgColor: colors.opBackground,
+                fgColor: colors.secondary,
+                onPressed: () {
+                  calculatorCubit.appendOperator('+');
+                },
+              ),
+            ],
+          ),
+          8.verticalSpace,
+          Row(
+            children: [
+              _CalcButton(
+                label: '0',
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                flex: 2,
+                onPressed: () {
+                  calculatorCubit.appendDigit('0');
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '.',
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDecimal();
+                },
+              ),
+              8.horizontalSpace,
+              _CalcButton(
+                label: '=',
+                bgColor: colors.opBackground,
+                fgColor: colors.secondary,
+                onPressed: () {
+                  calculatorCubit.evaluate();
+                },
+              ),
+            ],
+          ),
         ],
       ),
     );
@@ -74,29 +214,45 @@ class StandardCalculatorButtons extends StatelessWidget {
 }
 
 class _CalcButton extends StatelessWidget {
-  final String label;
+  final dynamic label;
   final Color bgColor;
   final Color fgColor;
+  final int? flex;
+  final VoidCallback? onPressed;
 
   const _CalcButton({
     required this.label,
     required this.bgColor,
     required this.fgColor,
+    this.flex = 1,
+    this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: bgColor,
-        foregroundColor: fgColor,
-        elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      ),
-      onPressed: () {},
-      child: Text(
-        label,
-        style: AppTextStyles.primaryS18W400(context).copyWith(color: fgColor),
+    return Expanded(
+      flex: flex!,
+      child: SizedBox(
+        height: 85.h,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: bgColor,
+            foregroundColor: fgColor,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          onPressed: onPressed,
+          child: label is IconData
+              ? Icon(label)
+              : Text(
+                  label,
+                  style: AppTextStyles.primaryS18W400(
+                    context,
+                  ).copyWith(color: fgColor),
+                ),
+        ),
       ),
     );
   }

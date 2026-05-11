@@ -10,7 +10,7 @@ class StandaredCalculatorAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(16.0.w, 16.0.h, 16.0.w, 4.h),
+      padding: EdgeInsets.fromLTRB(14.0.w, 18.0.h, 6.0.w, 18.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

@@ -44,7 +44,7 @@ abstract final class AppColors {
 
   static const lightPrimary = Color(0xFF1A7F37);
   static const lightPrimaryDark = Color(0xFF116329);
-  static const lightSecondary = Color(0xFF0969DA);
+  static const lightSecondary = Color(0xFF00B4D8);
   static const lightError = Color(0xFFCF222E);
 
   static const lightTextPrimary = Color(0xFF1F2328);
