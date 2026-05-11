@@ -67,6 +67,53 @@ class CalculatorCubit extends Cubit<CalculatorState> {
     }
   }
 
+  void appendPercent() {
+    if (state.status == CalculatorStatus.error) {
+      emit(const CalculatorState());
+      return;
+    }
+
+    if (state.status == CalculatorStatus.showingResult) {
+      final percentValue = state.result! / 100;
+      emit(CalculatorState(expression: formatNumber(percentValue)));
+      return;
+    }
+
+    if (state.expression.isEmpty) return;
+
+    final lastOpIndex = state.expression.lastIndexOf(RegExp(r'[+−×÷]'));
+    final currentNumber = lastOpIndex == -1
+        ? state.expression
+        : state.expression.substring(lastOpIndex + 1);
+
+    final N = double.tryParse(currentNumber);
+    if (N == null) return;
+
+    final precedingOp = lastOpIndex == -1
+        ? null
+        : state.expression[lastOpIndex];
+
+    final secondLastOpIndex = lastOpIndex <= 0
+        ? -1
+        : state.expression
+              .substring(0, lastOpIndex)
+              .lastIndexOf(RegExp(r'[+−×÷]'));
+    final prevOperand = lastOpIndex <= 0
+        ? ''
+        : state.expression.substring(secondLastOpIndex + 1, lastOpIndex);
+
+    final percentValue = switch (precedingOp) {
+      '+' || '−' => (double.tryParse(prevOperand) ?? 0) * N / 100,
+      _ => N / 100,
+    };
+
+    final newExpression =
+        state.expression.substring(0, lastOpIndex + 1) +
+        formatNumber(percentValue);
+
+    emit(state.copyWith(expression: newExpression));
+  }
+
   void backspace() {
     if (state.status != CalculatorStatus.editing || state.expression.isEmpty) {
       return;

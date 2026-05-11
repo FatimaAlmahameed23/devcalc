@@ -40,7 +40,9 @@ class StandardCalculatorButtons extends StatelessWidget {
                 label: '%',
                 bgColor: colors.gray200,
                 fgColor: colors.textSecondary,
-                onPressed: () {},
+                onPressed: () {
+                  calculatorCubit.appendPercent();
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
