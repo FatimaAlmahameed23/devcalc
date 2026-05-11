@@ -11,7 +11,8 @@ class ExpressionEvaluator {
 
     final cleanExpression = trimmedExpression
         .replaceAll('×', '*')
-        .replaceAll('÷', '/');
+        .replaceAll('÷', '/')
+        .replaceAll('−', '-');
 
     try {
       final parser = GrammarParser();

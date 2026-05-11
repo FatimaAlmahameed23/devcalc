@@ -1,12 +1,17 @@
 import 'package:devcalc/app/theme/app_text_styles.dart';
 import 'package:devcalc/core/extensions/context_extensions.dart';
+import 'package:devcalc/features/standard_calculator/presentation/cubit/calculator_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StandardCalculatorButtons extends StatelessWidget {
   const StandardCalculatorButtons({super.key});
   @override
   Widget build(BuildContext context) {
+    final calculatorCubit = context.read<CalculatorCubit>();
+    final colors = context.colors;
+
     return Padding(
       padding: EdgeInsetsGeometry.fromLTRB(12.h, 0.h, 12.h, 12.h),
       child: Column(
@@ -15,26 +20,36 @@ class StandardCalculatorButtons extends StatelessWidget {
             children: [
               _CalcButton(
                 label: 'AC',
-                bgColor: context.colors.clearBackground,
-                fgColor: context.colors.error,
+                bgColor: colors.clearBackground,
+                fgColor: colors.error,
+                onPressed: () {
+                  calculatorCubit.clear();
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: Icons.backspace_outlined,
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textSecondary,
+                bgColor: colors.gray200,
+                fgColor: colors.textSecondary,
+                onPressed: () {
+                  calculatorCubit.backspace();
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '%',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textSecondary,
+                bgColor: colors.gray200,
+                fgColor: colors.textSecondary,
+                onPressed: () {},
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '÷',
-                bgColor: context.colors.opBackground,
-                fgColor: context.colors.secondary,
+                bgColor: colors.opBackground,
+                fgColor: colors.secondary,
+                onPressed: () {
+                  calculatorCubit.appendOperator('÷');
+                },
               ),
             ],
           ),
@@ -43,26 +58,38 @@ class StandardCalculatorButtons extends StatelessWidget {
             children: [
               _CalcButton(
                 label: '7',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textPrimary,
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('7');
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '8',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textPrimary,
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('8');
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '9',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textPrimary,
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('9');
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '×',
-                bgColor: context.colors.opBackground,
-                fgColor: context.colors.secondary,
+                bgColor: colors.opBackground,
+                fgColor: colors.secondary,
+                onPressed: () {
+                  calculatorCubit.appendOperator('×');
+                },
               ),
             ],
           ),
@@ -71,26 +98,38 @@ class StandardCalculatorButtons extends StatelessWidget {
             children: [
               _CalcButton(
                 label: '4',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textPrimary,
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('4');
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '5',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textPrimary,
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('5');
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '6',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textPrimary,
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('6');
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
-                label: '-',
-                bgColor: context.colors.opBackground,
-                fgColor: context.colors.secondary,
+                label: '−',
+                bgColor: colors.opBackground,
+                fgColor: colors.secondary,
+                onPressed: () {
+                  calculatorCubit.appendOperator('−');
+                },
               ),
             ],
           ),
@@ -99,26 +138,38 @@ class StandardCalculatorButtons extends StatelessWidget {
             children: [
               _CalcButton(
                 label: '1',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textPrimary,
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('1');
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '2',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textPrimary,
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('2');
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '3',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textPrimary,
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDigit('3');
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '+',
-                bgColor: context.colors.opBackground,
-                fgColor: context.colors.secondary,
+                bgColor: colors.opBackground,
+                fgColor: colors.secondary,
+                onPressed: () {
+                  calculatorCubit.appendOperator('+');
+                },
               ),
             ],
           ),
@@ -127,21 +178,30 @@ class StandardCalculatorButtons extends StatelessWidget {
             children: [
               _CalcButton(
                 label: '0',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textPrimary,
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
                 flex: 2,
+                onPressed: () {
+                  calculatorCubit.appendDigit('0');
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '.',
-                bgColor: context.colors.gray200,
-                fgColor: context.colors.textPrimary,
+                bgColor: colors.gray200,
+                fgColor: colors.textPrimary,
+                onPressed: () {
+                  calculatorCubit.appendDecimal();
+                },
               ),
               8.horizontalSpace,
               _CalcButton(
                 label: '=',
-                bgColor: context.colors.opBackground,
-                fgColor: context.colors.secondary,
+                bgColor: colors.opBackground,
+                fgColor: colors.secondary,
+                onPressed: () {
+                  calculatorCubit.evaluate();
+                },
               ),
             ],
           ),
@@ -156,12 +216,14 @@ class _CalcButton extends StatelessWidget {
   final Color bgColor;
   final Color fgColor;
   final int? flex;
+  final VoidCallback? onPressed;
 
   const _CalcButton({
     required this.label,
     required this.bgColor,
     required this.fgColor,
     this.flex = 1,
+    this.onPressed,
   });
 
   @override
@@ -179,7 +241,7 @@ class _CalcButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          onPressed: () {},
+          onPressed: onPressed,
           child: label is IconData
               ? Icon(label)
               : Text(

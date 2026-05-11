@@ -4,13 +4,13 @@ enum CalculatorStatus { editing, showingResult, error }
 
 class CalculatorState extends Equatable {
   final String expression;
-  final String result;
+  final double? result;
   final CalculatorStatus status;
   final String? errorMessage;
 
   const CalculatorState({
     this.expression = '',
-    this.result = '',
+    this.result,
     this.status = CalculatorStatus.editing,
     this.errorMessage,
   });
@@ -20,7 +20,7 @@ class CalculatorState extends Equatable {
 
   CalculatorState copyWith({
     String? expression,
-    String? result,
+    double? result,
     CalculatorStatus? status,
     String? errorMessage,
   }) {

@@ -1,6 +1,10 @@
 import 'package:devcalc/app/theme/app_text_styles.dart';
 import 'package:devcalc/core/extensions/context_extensions.dart';
+import 'package:devcalc/core/utils/number_formatter.dart';
+import 'package:devcalc/features/standard_calculator/domain/models/calculator_state.dart';
+import 'package:devcalc/features/standard_calculator/presentation/cubit/calculator_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DisplayArea extends StatelessWidget {
@@ -17,7 +21,7 @@ class DisplayArea extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(12.h, 18.h, 14.h, 18.h),
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: [ExpressionLine(), ResultLine(), CopyResultButton()],
+              children: [PreviewText(), MainText(), CopyResultButton()],
             ),
           ),
         ),
@@ -55,28 +59,45 @@ class CopyResultButton extends StatelessWidget {
   }
 }
 
-class ResultLine extends StatelessWidget {
-  const ResultLine({super.key});
+class MainText extends StatelessWidget {
+  const MainText({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 65.w,
-      child: Text('16', style: AppTextStyles.primaryS56W300(context)),
+    return BlocBuilder<CalculatorCubit, CalculatorState>(
+      builder: (context, state) => SizedBox(
+        height: 65.h,
+        child: Text(
+          switch (state.status) {
+            CalculatorStatus.editing =>
+              state.expression.isEmpty ? '0' : state.expression,
+            CalculatorStatus.showingResult =>
+              state.result == null ? '' : formatNumber(state.result!),
+            CalculatorStatus.error => state.errorMessage ?? 'Error',
+          },
+          style: AppTextStyles.primaryS56W300(context).copyWith(
+            fontSize: state.status == CalculatorStatus.error ? 30 : null,
+          ),
+        ),
+      ),
     );
   }
 }
 
-class ExpressionLine extends StatelessWidget {
-  const ExpressionLine({super.key});
-
-  final expression = '(5 + 3) * 2';
+class PreviewText extends StatelessWidget {
+  const PreviewText({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 18.w,
-      child: Text(expression, style: AppTextStyles.subtleS13W400(context)),
+    return BlocBuilder<CalculatorCubit, CalculatorState>(
+      builder: (context, state) => SizedBox(
+        height: 18.h,
+        child: Text(switch (state.status) {
+          CalculatorStatus.editing => '',
+          CalculatorStatus.showingResult => state.expression,
+          CalculatorStatus.error => state.expression,
+        }, style: AppTextStyles.subtleS13W400(context)),
+      ),
     );
   }
 }
