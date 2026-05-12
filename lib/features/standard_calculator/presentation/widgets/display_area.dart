@@ -1,7 +1,6 @@
 import 'package:devcalc/app/theme/app_text_styles.dart';
 import 'package:devcalc/core/extensions/context_extensions.dart';
 import 'package:devcalc/core/utils/number_formatter.dart';
-import 'package:devcalc/features/standard_calculator/domain/models/calculator_state.dart';
 import 'package:devcalc/features/standard_calculator/presentation/cubit/calculator_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
