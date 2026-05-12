@@ -1,5 +1,6 @@
 import 'package:devcalc/app/utils/placeholder_screen.dart';
-import 'package:devcalc/features/standard_calculator/presentation/screens/standard_calculator_page.dart';
+import 'package:devcalc/features/programmer_mode/presentation/page/programmer_mode_page.dart';
+import 'package:devcalc/features/standard_calculator/presentation/page/standard_calculator_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -24,8 +25,7 @@ final appRouter = GoRouter(
         ),
         GoRoute(
           path: AppRoutes.programmer,
-          builder: (context, state) =>
-              const PlaceholderScreen(title: 'Programmer'),
+          builder: (context, state) => const ProgrammerModePage(),
         ),
         GoRoute(
           path: AppRoutes.colorConverter,
@@ -46,7 +46,6 @@ final appRouter = GoRouter(
   ],
 );
 
-/// The persistent shell that wraps all screens with bottom navigation.
 class AppShell extends StatelessWidget {
   final Widget child;
 

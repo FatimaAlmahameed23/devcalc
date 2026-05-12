@@ -28,8 +28,8 @@ class StandardCalculatorButtons extends StatelessWidget {
               ),
               8.horizontalSpace,
               _CalcButton(
-                label: Icons.backspace_outlined,
-                bgColor: colors.gray200,
+                icon: Icons.backspace_outlined,
+                bgColor: colors.gray150,
                 fgColor: colors.textSecondary,
                 onPressed: () {
                   calculatorCubit.backspace();
@@ -38,7 +38,7 @@ class StandardCalculatorButtons extends StatelessWidget {
               8.horizontalSpace,
               _CalcButton(
                 label: '%',
-                bgColor: colors.gray200,
+                bgColor: colors.gray150,
                 fgColor: colors.textSecondary,
                 onPressed: () {
                   calculatorCubit.appendPercent();
@@ -214,14 +214,16 @@ class StandardCalculatorButtons extends StatelessWidget {
 }
 
 class _CalcButton extends StatelessWidget {
-  final dynamic label;
+  final String? label;
+  final IconData? icon;
   final Color bgColor;
   final Color fgColor;
   final int? flex;
   final VoidCallback? onPressed;
 
   const _CalcButton({
-    required this.label,
+    this.label,
+    this.icon,
     required this.bgColor,
     required this.fgColor,
     this.flex = 1,
@@ -244,10 +246,10 @@ class _CalcButton extends StatelessWidget {
             ),
           ),
           onPressed: onPressed,
-          child: label is IconData
-              ? Icon(label)
+          child: icon != null
+              ? Icon(icon)
               : Text(
-                  label,
+                  label!,
                   style: AppTextStyles.primaryS18W400(
                     context,
                   ).copyWith(color: fgColor),

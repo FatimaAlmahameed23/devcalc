@@ -104,8 +104,8 @@ class AppColorScheme extends ThemeExtension<AppColorScheme> {
   // ─── Light variant ───
   static const light = AppColorScheme(
     surface: AppColors.lightSurface,
-    surfacebase: AppColors.lightGray150,
-    surfaceRaised: AppColors.lightSurface,
+    surfacebase: AppColors.lightSurface,
+    surfaceRaised: AppColors.lightGray150,
     gray150: AppColors.lightGray150,
     gray200: AppColors.lightGray200,
     gray300: AppColors.lightGray300,
