@@ -1,161 +1,200 @@
 import 'package:devcalc/app/theme/app_text_styles.dart';
 import 'package:devcalc/core/extensions/context_extensions.dart';
+import 'package:devcalc/features/programmer_calculator/presentation/cubit/programmer_calculator_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProgrammerModeButtons extends StatelessWidget {
-  const ProgrammerModeButtons({super.key});
+class ProgrammerCalculatorButtons extends StatelessWidget {
+  const ProgrammerCalculatorButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<ProgrammerCalculatorCubit>();
     return Column(
       children: [
         Row(
           children: [
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: 'A',
               bgColor: context.colors.devBackground,
               fgColor: context.colors.textInfo,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('A');
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: 'B',
               bgColor: context.colors.devBackground,
               fgColor: context.colors.textInfo,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('B');
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: 'C',
               bgColor: context.colors.devBackground,
               fgColor: context.colors.textInfo,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('C');
+              },
             ),
           ],
         ),
         6.verticalSpace,
         Row(
           children: [
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: 'D',
               bgColor: context.colors.devBackground,
               fgColor: context.colors.textInfo,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('D');
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: 'E',
               bgColor: context.colors.devBackground,
               fgColor: context.colors.textInfo,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('E');
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: 'F',
               bgColor: context.colors.devBackground,
               fgColor: context.colors.textInfo,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('F');
+              },
             ),
           ],
         ),
         6.verticalSpace,
         Row(
           children: [
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: '7',
               bgColor: context.colors.gray200,
               fgColor: context.colors.textPrimary,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('7');
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: '8',
               bgColor: context.colors.gray200,
               fgColor: context.colors.textPrimary,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('8');
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: '9',
               bgColor: context.colors.gray200,
               fgColor: context.colors.textPrimary,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('9');
+              },
             ),
           ],
         ),
         6.verticalSpace,
         Row(
           children: [
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: '4',
               bgColor: context.colors.gray200,
               fgColor: context.colors.textPrimary,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('4');
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: '5',
               bgColor: context.colors.gray200,
               fgColor: context.colors.textPrimary,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('5');
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: '6',
               bgColor: context.colors.gray200,
               fgColor: context.colors.textPrimary,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('6');
+              },
             ),
           ],
         ),
         6.verticalSpace,
         Row(
           children: [
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: '1',
               bgColor: context.colors.gray200,
               fgColor: context.colors.textPrimary,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('1');
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: '2',
               bgColor: context.colors.gray200,
               fgColor: context.colors.textPrimary,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('2');
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: '3',
               bgColor: context.colors.gray200,
               fgColor: context.colors.textPrimary,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('3');
+              },
             ),
           ],
         ),
         6.verticalSpace,
         Row(
           children: [
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               icon: Icons.backspace_outlined,
               bgColor: context.colors.gray150,
               fgColor: context.colors.textSecondary,
-              onPressed: () {},
+              onPressed: () {
+                cubit.backspace();
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: '0',
               bgColor: context.colors.gray200,
               fgColor: context.colors.textPrimary,
-              onPressed: () {},
+              onPressed: () {
+                cubit.appendDigit('0');
+              },
             ),
             6.horizontalSpace,
-            _ProgrammerModeButton(
+            _ProgrammerCalculatorButton(
               label: 'AC',
               bgColor: context.colors.clearBackground,
               fgColor: context.colors.textError,
-              onPressed: () {},
+              onPressed: () {
+                cubit.clear();
+              },
             ),
           ],
         ),
@@ -165,14 +204,14 @@ class ProgrammerModeButtons extends StatelessWidget {
   }
 }
 
-class _ProgrammerModeButton extends StatelessWidget {
+class _ProgrammerCalculatorButton extends StatelessWidget {
   final String? label;
   final IconData? icon;
   final Color bgColor;
   final Color fgColor;
   final VoidCallback onPressed;
 
-  const _ProgrammerModeButton({
+  const _ProgrammerCalculatorButton({
     this.label,
     this.icon,
     required this.bgColor,
@@ -192,7 +231,7 @@ class _ProgrammerModeButton extends StatelessWidget {
             foregroundColor: fgColor,
             elevation: 0,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(20.r),
             ),
           ),
           onPressed: onPressed,

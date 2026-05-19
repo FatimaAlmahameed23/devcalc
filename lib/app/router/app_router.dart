@@ -1,5 +1,5 @@
 import 'package:devcalc/app/utils/placeholder_screen.dart';
-import 'package:devcalc/features/programmer_mode/presentation/page/programmer_mode_page.dart';
+import 'package:devcalc/features/programmer_calculator/presentation/page/programmer_calculator_page.dart';
 import 'package:devcalc/features/standard_calculator/presentation/page/standard_calculator_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ final appRouter = GoRouter(
         ),
         GoRoute(
           path: AppRoutes.programmer,
-          builder: (context, state) => const ProgrammerModePage(),
+          builder: (context, state) => const ProgrammerCalculatorPage(),
         ),
         GoRoute(
           path: AppRoutes.colorConverter,
