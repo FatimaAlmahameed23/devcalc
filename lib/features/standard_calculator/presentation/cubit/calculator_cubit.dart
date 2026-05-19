@@ -1,10 +1,13 @@
 import 'package:devcalc/core/services/clipboard_service.dart';
 import 'package:devcalc/core/utils/number_formatter.dart';
 import 'package:devcalc/features/standard_calculator/domain/models/calculation_result.dart';
-import 'package:devcalc/features/standard_calculator/domain/models/calculator_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/services/expression_evaluator.dart';
+
+part 'calculator_cubit.freezed.dart';
+part 'calculator_state.dart';
 
 class CalculatorCubit extends Cubit<CalculatorState> {
   final ExpressionEvaluator _evaluator;

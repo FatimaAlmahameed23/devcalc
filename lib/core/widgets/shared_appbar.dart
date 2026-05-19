@@ -4,8 +4,9 @@ import 'package:devcalc/core/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class StandaredCalculatorAppbar extends StatelessWidget {
-  const StandaredCalculatorAppbar({super.key});
+class SharedAppbar extends StatelessWidget {
+  final String title;
+  const SharedAppbar({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class StandaredCalculatorAppbar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('calc', style: AppTextStyles.subtleS13W400(context)),
+          Text(title, style: AppTextStyles.subtleS13W400(context)),
           Row(
             children: [
               ValueListenableBuilder<ThemeMode>(

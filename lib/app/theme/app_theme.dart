@@ -54,7 +54,7 @@ abstract final class AppTheme {
 
   static ThemeData get light => ThemeData(
     brightness: Brightness.light,
-    scaffoldBackgroundColor: AppColors.lightGray150,
+    scaffoldBackgroundColor: AppColors.lightSurface,
     extensions: const [AppColorScheme.light],
     primaryColor: AppColors.lightPrimary,
     fontFamily: 'JetBrainsMono',
@@ -69,7 +69,7 @@ abstract final class AppTheme {
       onError: AppColors.lightSurface,
     ),
     cardTheme: CardThemeData(
-      color: AppColors.lightSurface,
+      color: AppColors.lightGray150,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
         side: const BorderSide(color: AppColors.lightGray300),
@@ -77,7 +77,7 @@ abstract final class AppTheme {
       elevation: 0,
     ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.lightGray150,
+      backgroundColor: AppColors.lightSurface,
       foregroundColor: AppColors.lightTextPrimary,
       elevation: 0,
       centerTitle: false,

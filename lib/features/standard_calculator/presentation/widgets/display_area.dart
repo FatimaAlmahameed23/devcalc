@@ -1,7 +1,6 @@
 import 'package:devcalc/app/theme/app_text_styles.dart';
 import 'package:devcalc/core/extensions/context_extensions.dart';
 import 'package:devcalc/core/utils/number_formatter.dart';
-import 'package:devcalc/features/standard_calculator/domain/models/calculator_state.dart';
 import 'package:devcalc/features/standard_calculator/presentation/cubit/calculator_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,7 +13,6 @@ class DisplayArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        HistoryArea(),
         SizedBox(
           width: double.infinity,
           child: Padding(
@@ -45,7 +43,7 @@ class CopyResultButton extends StatelessWidget {
             final copied = await cubit.copyResult();
 
             if (!context.mounted || !copied) return;
-            
+
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text('Copied to clipboard'),
@@ -54,6 +52,7 @@ class CopyResultButton extends StatelessWidget {
             );
           },
           style: ElevatedButton.styleFrom(
+            elevation: 0,
             backgroundColor: context.colors.surfaceRaised,
             padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 8.w),
             shape: RoundedRectangleBorder(
@@ -109,34 +108,6 @@ class PreviewText extends StatelessWidget {
           CalculatorStatus.showingResult => state.expression,
           CalculatorStatus.error => state.expression,
         }, style: AppTextStyles.subtleS13W400(context)),
-      ),
-    );
-  }
-}
-
-class HistoryArea extends StatelessWidget {
-  HistoryArea({super.key});
-
-  final history = [2, 14, 1024];
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(16.h, 4.h, 16.h, 0.h),
-      child: Row(
-        children: [
-          for (var item in history) ...[
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
-              decoration: BoxDecoration(
-                color: context.colors.surfaceRaised,
-                borderRadius: BorderRadius.circular(4.r),
-              ),
-              child: Text('$item', style: AppTextStyles.mutedS10W400(context)),
-            ),
-            4.horizontalSpace,
-          ],
-        ],
       ),
     );
   }
