@@ -14,6 +14,7 @@ class StandardCalculatorPage extends StatelessWidget {
     return BlocProvider<CalculatorCubit>(
       create: (context) => CalculatorCubit(getIt(), getIt()),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(title: const SharedAppbar(title: 'calc')),
         body: const Column(
           children: [DisplayArea(), StandardCalculatorButtons()],

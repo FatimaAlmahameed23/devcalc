@@ -11,6 +11,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: context.colors.textSecondary,
   );
+  static TextStyle secondaryS12W600(BuildContext context) => _monoBase.copyWith(
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    color: context.colors.textSecondary,
+  );
   static TextStyle secondaryS12W400(BuildContext context) => _monoBase.copyWith(
     fontSize: 12,
     fontWeight: FontWeight.w400,
@@ -28,6 +33,11 @@ class AppTextStyles {
   );
   static TextStyle secondaryS9W400(BuildContext context) => _monoBase.copyWith(
     fontSize: 9,
+    fontWeight: FontWeight.w400,
+    color: context.colors.textSecondary,
+  );
+  static TextStyle secondaryS8W400(BuildContext context) => _monoBase.copyWith(
+    fontSize: 8,
     fontWeight: FontWeight.w400,
     color: context.colors.textSecondary,
   );
@@ -50,7 +60,7 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: context.colors.textPrimary,
   );
-   static TextStyle primaryS15W600(BuildContext context) => _monoBase.copyWith(
+  static TextStyle primaryS15W600(BuildContext context) => _monoBase.copyWith(
     fontSize: 16,
     fontWeight: FontWeight.w600,
     color: context.colors.textPrimary,
@@ -60,6 +70,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: context.colors.textPrimary,
   );
+  static TextStyle primaryS13W400(BuildContext context) => _monoBase.copyWith(
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    color: context.colors.textPrimary,
+  );
+
   static TextStyle primaryS11W400(BuildContext context) => _monoBase.copyWith(
     fontSize: 11,
     fontWeight: FontWeight.w400,
@@ -79,5 +95,12 @@ class AppTextStyles {
     fontSize: 12,
     fontWeight: FontWeight.w700,
     color: context.colors.textInverse,
+  );
+  // ---------------------- Gray Text Styles ------------------ //
+
+  static TextStyle grayS8W400(BuildContext context) => _monoBase.copyWith(
+    fontSize: 8,
+    fontWeight: FontWeight.w400,
+    color: context.colors.gray400,
   );
 }

@@ -16,6 +16,7 @@ class ProgrammerCalculatorPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => ProgrammerCalculatorCubit(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: const SharedAppbar(title: 'Programmer Calculator'),
         ),
