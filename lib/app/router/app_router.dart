@@ -1,4 +1,6 @@
 import 'package:devcalc/app/utils/placeholder_screen.dart';
+import 'package:devcalc/features/base64/presentation/page/base64.dart';
+import 'package:devcalc/features/color_converter/presentation/page/color_converter.dart';
 import 'package:devcalc/features/programmer_calculator/presentation/page/programmer_calculator_page.dart';
 import 'package:devcalc/features/standard_calculator/presentation/page/standard_calculator_page.dart';
 import 'package:go_router/go_router.dart';
@@ -29,12 +31,11 @@ final appRouter = GoRouter(
         ),
         GoRoute(
           path: AppRoutes.colorConverter,
-          builder: (context, state) =>
-              const PlaceholderScreen(title: 'Color Converter'),
+          builder: (context, state) => const ColorConverterPage(),
         ),
         GoRoute(
           path: AppRoutes.base64,
-          builder: (context, state) => const PlaceholderScreen(title: 'Base64'),
+          builder: (context, state) => const Base64(),
         ),
         GoRoute(
           path: AppRoutes.timestamp,
