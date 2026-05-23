@@ -1,4 +1,3 @@
-import 'package:devcalc/app/utils/placeholder_screen.dart';
 import 'package:devcalc/features/base64/presentation/page/base64.dart';
 import 'package:devcalc/features/color_converter/presentation/page/color_converter.dart';
 import 'package:devcalc/features/programmer_calculator/presentation/page/programmer_calculator_page.dart';
@@ -12,7 +11,6 @@ abstract final class AppRoutes {
   static const programmer = '/programmer';
   static const colorConverter = '/color-converter';
   static const base64 = '/base64';
-  static const timestamp = '/timestamp';
 }
 
 final appRouter = GoRouter(
@@ -37,11 +35,6 @@ final appRouter = GoRouter(
           path: AppRoutes.base64,
           builder: (context, state) => const Base64(),
         ),
-        GoRoute(
-          path: AppRoutes.timestamp,
-          builder: (context, state) =>
-              const PlaceholderScreen(title: 'Timestamp'),
-        ),
       ],
     ),
   ],
@@ -65,11 +58,6 @@ class AppShell extends StatelessWidget {
       route: AppRoutes.colorConverter,
     ),
     (icon: Icons.code_outlined, label: 'Base64', route: AppRoutes.base64),
-    (
-      icon: Icons.access_time_outlined,
-      label: 'Time',
-      route: AppRoutes.timestamp,
-    ),
   ];
 
   @override
