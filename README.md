@@ -46,7 +46,7 @@ No backend. No analytics. No accounts. The app runs entirely offline.
 
 ## Architecture
 
-The project follows a **feature-first** layout. Each feature owns its own `domain/`, and `presentation/` layers, so a feature can be removed or extracted with minimal cross-cutting cleanup.
+The project follows a **feature-first** layout. Each feature owns its `domain/` and `presentation/` layers, so a feature can be removed or extracted with minimal cross-cutting cleanup.
 
 ```
 lib/
@@ -59,7 +59,7 @@ lib/
 │   └── base64/
 │       ├── domain/        # models, services, enums
 │       └── presentation/  # cubit, pages, widgets
-└── shared/        # cross-feature models & services
+
 ```
 
 ### Key decisions
@@ -79,7 +79,7 @@ dart run build_runner build --delete-conflicting-outputs
 flutter run
 ```
 
-Requires Flutter SDK with Dart `>=3.8.1 <4.0.0`. Tested on Android and iOS.
+Requires Flutter SDK with Dart `>=3.8.1 <4.0.0`.
 
 ---
 
