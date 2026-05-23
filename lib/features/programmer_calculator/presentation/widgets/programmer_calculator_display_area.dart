@@ -91,7 +91,7 @@ class DisplayCard extends StatelessWidget {
               Text(
                 isActive
                     ? value != null
-                          ? '${value!} |' // TODO: animate cursor
+                          ? '${value!} |'
                           : ''
                     : value ?? '',
                 style: AppTextStyles.primaryS14W400(

@@ -331,7 +331,7 @@ class _HexFieldState extends State<HexField> {
 
   @override
   Widget build(BuildContext context) {
-    final rgb = ColorUtils.hexToRgb(widget.hex);
+    final rgb = ColorUtils.hexToRgb(widget.hex)!;
     return ColorContainer(
       label: 'HEX',
       value: widget.hex,
@@ -345,8 +345,15 @@ class _HexFieldState extends State<HexField> {
               controller: _controller,
               focusNode: _focusNode,
               onChanged: (value) {
-                if (value.length == 7) {
-                  context.read<ColorConverterCubit>().updateHex(value);
+                if (value.length != 7) return;
+                final ok = context.read<ColorConverterCubit>().updateHex(value);
+                if (!ok) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Invalid hex color'),
+                      duration: Duration(seconds: 1),
+                    ),
+                  );
                 }
               },
             ),

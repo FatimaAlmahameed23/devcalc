@@ -43,10 +43,12 @@ class ColorUtils {
     return (h: h, s: s, l: l);
   }
 
-  static ({int r, int g, int b}) hexToRgb(String hex) {
-    int r = int.parse(hex.substring(1, 3), radix: 16);
-    int g = int.parse(hex.substring(3, 5), radix: 16);
-    int b = int.parse(hex.substring(5, 7), radix: 16);
+  static final RegExp _hexPattern = RegExp(r'^#[0-9a-fA-F]{6}$');
+  static ({int r, int g, int b})? hexToRgb(String hex) {
+    if (!_hexPattern.hasMatch(hex)) return null;
+    final r = int.parse(hex.substring(1, 3), radix: 16);
+    final g = int.parse(hex.substring(3, 5), radix: 16);
+    final b = int.parse(hex.substring(5, 7), radix: 16);
     return (r: r, g: g, b: b);
   }
 

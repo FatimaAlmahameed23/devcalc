@@ -59,8 +59,10 @@ class ColorConverterCubit extends Cubit<ColorConverterState> {
     emit(state.copyWith(r: rgb.r, g: rgb.g, b: rgb.b));
   }
 
-  void updateHex(String hex) {
-    ({int r, int g, int b}) rgb = ColorUtils.hexToRgb(hex);
+  bool updateHex(String hex) {
+    final rgb = ColorUtils.hexToRgb(hex);
+    if (rgb == null) return false;
     emit(state.copyWith(r: rgb.r, g: rgb.g, b: rgb.b));
+    return true;
   }
 }
