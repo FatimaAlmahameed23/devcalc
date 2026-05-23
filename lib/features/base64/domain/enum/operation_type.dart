@@ -1,0 +1,1 @@
+enum OperationType { encode, decode }
