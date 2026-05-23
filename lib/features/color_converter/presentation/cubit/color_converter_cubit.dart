@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:devcalc/core/utils/color_utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
