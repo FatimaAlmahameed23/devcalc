@@ -27,7 +27,10 @@ class ColorConverterCubit extends Cubit<ColorConverterState> {
       state.b,
     );
 
-    ({int r, int g, int b}) rgb = ColorUtils.hslToRgb(h, hsl.s, hsl.l);
+    final double s = hsl.s == 0 ? 100 : hsl.s;
+    final double l = (hsl.l == 0 || hsl.l == 100) ? 50 : hsl.l;
+
+    ({int r, int g, int b}) rgb = ColorUtils.hslToRgb(h, s, l);
 
     emit(state.copyWith(r: rgb.r, g: rgb.g, b: rgb.b));
   }
